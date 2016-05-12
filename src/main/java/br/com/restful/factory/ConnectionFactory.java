@@ -8,7 +8,7 @@ import java.sql.ResultSet;
 
 /**
  * 
- * Classe respons�vel por conter os metodos criar e fechar o banco de dados.
+ * Classe responsavel por conter os metodos criar e fechar o banco de dados.
  *
  * @author Douglas Costa <douglas.cst90@gmail.com>
  * @since 17/02/2013 01:54:02
@@ -34,7 +34,7 @@ public class ConnectionFactory {
 
 	/**
 	 * 
-	 * M�todo respons�vel por criar uma conexao com o banco 
+	 * Metodo responsavel por criar uma conexao com o banco 
 	 *
 	 * @return
 	 * @author Douglas Costa <douglas.cst90@gmail.com.br>
@@ -52,7 +52,7 @@ public class ConnectionFactory {
 			System.out.println("Conex�o criada");
 			
 		} catch (Exception e) {
-			System.out.println("Erro ao criar conex�o com o banco: " + URL);
+			System.out.println("Erro ao criar conexao com o banco: " + URL);
 			e.printStackTrace();
 		}
 		return conexao;
@@ -74,7 +74,7 @@ public class ConnectionFactory {
 			}
 			System.out.println("Conex�o fechada");		
 		} catch (Exception e) {
-			System.out.println("Erro ao fechar conex�o com o banco: " + URL);
+			System.out.println("Erro ao fechar conexao com o banco: " + URL);
 		}
 	}
 }

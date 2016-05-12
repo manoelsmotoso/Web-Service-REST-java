@@ -5,7 +5,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 /**
  * 
- * Classe responsável por conter os atributos do Objeto Cliente
+ * Classe responsavel por conter os atributos do Objeto Cliente
  *
  * @author Douglas Costa <douglas.cst90@gmail.com>
  * @since 17/02/2013 01:45:14

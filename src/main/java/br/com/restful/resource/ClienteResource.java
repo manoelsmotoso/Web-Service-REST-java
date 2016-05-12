@@ -15,7 +15,7 @@ import br.com.restful.controller.ClienteController;
 import br.com.restful.model.Cliente;
 
 /**
- * Classe responsável por conter os metodos REST de acesso ao webservice
+ * Classe responsavel por conter os metodos REST de acesso ao webservice
  * 
  * @author motos
  *
@@ -24,7 +24,7 @@ import br.com.restful.model.Cliente;
 public class ClienteResource {
 
 	/**
-	*  Método responsável por fazer chamada ao controller
+	*  Metodo responsavel por fazer chamada ao controller
 	* @return ArrayList<Cliente>
 	* @author Manoel Silva Motoso <manoelmotoso@hotmail.com>
 	* @since 12/05/2016 12:05:44
@@ -52,7 +52,7 @@ public class ClienteResource {
 		}else{
 		return Response
 				.status(404)
-				.entity("Cliente não encontrado")
+				.entity("Cliente nao encontrado")
 				.build();
 		}
 	}

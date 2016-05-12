@@ -10,12 +10,7 @@ import br.com.restful.factory.ConnectionFactory;
 import br.com.restful.model.Cliente;
 
 /**
- * 
- * Classe responsável por conter os metodos do CRUD
- *
- * @author Douglas Costa <douglas.cst90@gmail.com>
- * @since 17/02/2013 01:55:13
- * @version 1.0
+ * Classe responsovel por conter os metodos do CRUD
  */
 public class ClienteDAO extends ConnectionFactory {
 
@@ -23,13 +18,7 @@ public class ClienteDAO extends ConnectionFactory {
 	
 	
 	/**
-	 * 
-	 * Método responsável por criar uma instancia da classe ClienteDAO (Singleton)
-	 *
-	 * @return
-	 * @author Douglas Costa <douglas.cst90@gmail.com.br>
-	 * @since 17/02/2013 02:03:47
-	 * @version 1.0
+	 * Metodo responsovel por criar uma instancia da classe ClienteDAO (Singleton)
 	 */
 	public static ClienteDAO getInstance(){
 		if(instance == null)
@@ -39,12 +28,7 @@ public class ClienteDAO extends ConnectionFactory {
 	
 	/**
 	 * 
-	 * Método responsável por listar todos os clientes do banco
-	 *
-	 * @return ArrayList<CLiente> clientes
-	 * @author Douglas Costa <douglas.cst90@gmail.com.br>
-	 * @since 17/02/2013 02:01:35
-	 * @version 1.0
+	 * Metodo responsavel por listar todos os clientes do banco
 	 */
 	public ArrayList<Cliente> listarTodos(){
 		Connection conexao = null;
@@ -121,7 +105,7 @@ public class ClienteDAO extends ConnectionFactory {
 	* Metodo responsavel por gravar cliente no banco de dados.
 	* 
 	* @param cliente
-	* @return verdade se cliente gravado e falso se não gravado
+	* @return verdade se cliente gravado e falso se nao gravado
 	* @author Manoel Silva Motoso <manoelmotoso@hotmail.com>
 	* @since 11/05/2016 11:49:38
 	* @version 1.0
