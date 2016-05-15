@@ -106,13 +106,13 @@ public class ClienteResource {
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	@Path("/deletar")
-	public Response deletarCliente(long id){
+	public Response deletarCliente(Cliente cliente){
 		
-		boolean isClienteDeletado = new ClienteController().deletar(id);
+		boolean isClienteDeletado = new ClienteController().deletar(cliente.getId());
 		if(isClienteDeletado  == true){		
 			return Response
 							.ok()
-							.entity("Cliente com ID= "+id+" foi deletado com sucesso")
+							.entity(cliente.getNome()+" foi deletado com sucesso")
 							.build();
 			}else{
 				return Response
