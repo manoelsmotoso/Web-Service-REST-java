@@ -136,11 +136,21 @@ public class ClienteDAO extends ConnectionFactory {
 			isGravado = false;
 			e.printStackTrace();
 
+		} finally {
+			fecharConexao(conexao, pstmt, null);
 		}
 		return isGravado;
 	}
-
-	public static boolean update(Cliente cliente) {
+	/**
+	*Metodo responsavel por atualizar cliente na base de dados
+	* 
+	* @param cliente
+	* @return verdade se atualizado e falso se nao
+	* @author Manoel Silva Motoso <manoelmotoso@hotmail.com>
+	* @since 15/05/2016 13:29:22
+	* @version 1.0
+	 */
+	public static  boolean update(Cliente cliente) {
 		long id = cliente.getId();
 		String nome = cliente.getNome();
 		String cpf = cliente.getCpf();
@@ -164,8 +174,39 @@ public class ClienteDAO extends ConnectionFactory {
 			isAtualizado = false;
 			e.printStackTrace();
 
+		}finally {
+			fecharConexao(conexao, pstmt, null);
+		}return isAtualizado;
+
+	}
+	/**
+	* Metodo responsavel por deletar cliente na base de dados.
+	* 
+	* @param id
+	* @return Verdade se cliente deletado e falso se nao
+	* @author Manoel Silva Motoso <manoelmotoso@hotmail.com>
+	* @since 15/05/2016 13:29:40
+	* @version 1.0
+	 */
+	public static  boolean delete(long id) {
+		boolean isDeletado = false;
+		PreparedStatement pstmt = null;
+		Connection conexao = criarConexao();
+		try {
+			pstmt = conexao.prepareStatement("DELETE cliente WHERE id = ?");
+			pstmt.setLong(1, id);
+			boolean execute = pstmt.execute();
+			isDeletado = true;
+			System.out.println("Respota do delete: " + execute);
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			isDeletado = false;
+			e.printStackTrace();
+
+		} finally {
+			fecharConexao(conexao, pstmt, null);
 		}
-		return isAtualizado;
-		
+		return isDeletado;
 	}
 }

@@ -102,5 +102,26 @@ public class ClienteResource {
 
 	}
 	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/deletar")
+	public Response deletarCliente(long id){
+		
+		boolean isClienteDeletado = new ClienteController().deletar(id);
+		if(isClienteDeletado  == true){		
+			return Response
+							.ok()
+							.entity("Cliente com ID= "+id+" foi deletado com sucesso")
+							.build();
+			}else{
+				return Response
+						.status(500)
+						.entity("Erro no servidor  ao deletar cliente")
+						.build();
+			}
+		
+	}
+	
 
 }

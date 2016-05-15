@@ -49,7 +49,7 @@ public class ConnectionFactory {
 			
 			Class.forName(DRIVER);
 			conexao = DriverManager.getConnection(URL, USUARIO, SENHA);
-			System.out.println("Conex�o criada");
+			System.out.println("Conexao criada");
 			
 		} catch (Exception e) {
 			System.out.println("Erro ao criar conexao com o banco: " + URL);
@@ -59,7 +59,7 @@ public class ConnectionFactory {
 	}
 	
 	
-	public void fecharConexao(Connection conexao, PreparedStatement pstmt, ResultSet rs){
+	public static void fecharConexao(Connection conexao, PreparedStatement pstmt, ResultSet rs){
 		
 		try {
 			
@@ -72,7 +72,7 @@ public class ConnectionFactory {
 			if(rs != null){
 				rs.close();
 			}
-			System.out.println("Conex�o fechada");		
+			System.out.println("Conexao fechada");		
 		} catch (Exception e) {
 			System.out.println("Erro ao fechar conexao com o banco: " + URL);
 		}
