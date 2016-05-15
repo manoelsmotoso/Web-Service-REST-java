@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
@@ -78,5 +79,28 @@ public class ClienteResource {
 		}
 		
 	}
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	@Path("/atualizar")
+	public Response altualizarCliente(Cliente cliente){
+		boolean isClienteAtualizado = new ClienteController().atualizarCliente(cliente);
+		
+	
+		if(isClienteAtualizado == true){		
+			return Response
+							.ok()
+							.entity(cliente)
+							.build();
+			}else{
+				return Response
+						.status(500)
+						.entity("Erro no servidor  ao atualizar cliente")
+						.build();
+			}
+
+	}
+	
 
 }

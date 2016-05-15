@@ -41,7 +41,7 @@ public class ConnectionFactory {
 	 * @since 17/02/2013 01:51:54
 	 * @version 1.0
 	 */
-	public Connection criarConexao(){
+	public static Connection criarConexao(){
 		
 		Connection conexao = null;
 		

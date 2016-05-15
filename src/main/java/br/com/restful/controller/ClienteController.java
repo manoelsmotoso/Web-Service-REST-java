@@ -21,7 +21,7 @@ public class ClienteController {
 	 * @return Retorna todos os clientes gravados no banco de dados.
 	 */
 	public ArrayList<Cliente> listarTodos(){
-		System.out.println("Enviando para o GET");
+		System.out.println("Cliente controller: listar Todos");
 		return ClienteDAO.getInstance().listarTodos();
 		
 	}
@@ -34,7 +34,7 @@ public class ClienteController {
 	* @version 1.0
 	 */
 	public Cliente buscarPorId(long id){
-		System.out.println("Enviando para o GET");
+		System.out.println("Cliente controller: buscar por id");
 		ClienteDAO dao=new ClienteDAO();
 		Cliente cliente = dao.getById(id);
 		return cliente ;
@@ -49,9 +49,22 @@ public class ClienteController {
 	* @version 1.0
 	 */
 	public boolean gravarCliente(Cliente cliente) {
-		System.out.println("Enviando para o PUT");
+		System.out.println("Cliente controller: gravar");
 		return new ClienteDAO().insert(cliente);
 		
+	}
+	/**
+	* Chama o metodo update na classe ClienteDAO
+	* 
+	* @param cliente
+	* @return Verdade se cliente atualizado e falso se nao
+	* @author Manoel Silva Motoso <manoelmotoso@hotmail.com>
+	* @since 15/05/2016 12:01:26
+	* @version 1.0
+	 */
+	public boolean atualizarCliente(Cliente cliente) {
+		System.out.println("Cliente controller: atualizar");
+		return ClienteDAO.update(cliente);
 	}
 	
 }
