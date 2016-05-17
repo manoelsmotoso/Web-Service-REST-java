@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<persistence version="1.0"
+	xmlns="http://java.sun.com/xml/ns/persistence">
+	
+	<persistence-unit name="MYSQL_OPENSHIFT">
+		<provider>org.hibernate.ejb.HibernatePersistence</provider>
+		
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+
+			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://127.6.238.2:3306/cliente" />
+			<property name="javax.persistence.jdbc.user" value="adminsHDS63j" />
+			<property name="javax.persistence.jdbc.password" value="AbL_b2eyBwsm" />
+			<property name="hibernate.connection.driver_class" value="org.gjt.mm.mysql.Driver"></property>
+			<property name="hibernate.connection.url"
+				value="jdbc:mysql://&lt;hostname&gt;/&lt;database&gt;"></property>
+		</properties>
+	</persistence-unit>
+
+	<persistence-unit name="DATASOURCE_TOMCACAT7" >
+		<non-jta-data-source>java:comp/env/jdbc/MySQLDS</non-jta-data-source>
+		<properties>
+			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5InnoDBDialect" />
+			<property name="connection.autocommit" value="false" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="hibernate.show_sql" value="true" />
+			<property name="hibernate.format_sql" value="true" />
+		</properties>
+	</persistence-unit>
+
+
+</persistence>
