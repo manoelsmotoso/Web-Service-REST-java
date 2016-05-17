@@ -1,7 +1,5 @@
 package br.com.restful.controller;
 
-
-
 import java.util.ArrayList;
 
 import br.com.restful.dao.ClienteDAO;
@@ -20,38 +18,50 @@ public class ClienteController {
 	 * 
 	 * @return Retorna todos os clientes gravados no banco de dados.
 	 */
-	public ArrayList<Cliente> listarTodos(){
+	public ArrayList<Cliente> listarTodos() {
 		System.out.println("Enviando para o GET");
 		return ClienteDAO.getInstance().listarTodos();
-		
+
 	}
+
 	/**
 	 * 
-	* @param id
-	* @return cliente
-	* @author Manoel Silva Motoso <manoelmotoso@hotmail.com>
-	* @since 11/05/2016 11:52:48
-	* @version 1.0
+	 * @param id
+	 * @return cliente
+	 * @author Manoel Silva Motoso <manoelmotoso@hotmail.com>
+	 * @since 11/05/2016 11:52:48
+	 * @version 1.0
 	 */
-	public Cliente buscarPorId(long id){
+	public Cliente buscarPorId(long id) {
 		System.out.println("Enviando para o GET");
-		ClienteDAO dao=new ClienteDAO();
+		ClienteDAO dao = new ClienteDAO();
 		Cliente cliente = dao.getById(id);
-		return cliente ;
+		return cliente;
 	}
-	
+
 	/**
-	 * 
-	* @param cliente
-	* @return booolean
-	* @author Manoel Silva Motoso <manoelmotoso@hotmail.com>
-	* @since 11/05/2016 11:53:15
-	* @version 1.0
+	 * Chama o metodo inset da classe ClienteDAO
 	 */
 	public boolean gravarCliente(Cliente cliente) {
 		System.out.println("Enviando para o PUT");
 		return new ClienteDAO().insert(cliente);
-		
+
 	}
-	
+
+	/**
+	 * Chama o metodo update na classe ClienteDAO
+	 */
+	public boolean atualizarCliente(Cliente cliente) {
+		System.out.println("Cliente controller: Atualizar");
+		return ClienteDAO.getInstance().update(cliente);
+	}
+
+	/**
+	 * Chama o metodo delete na classe ClienteDAO
+	 */
+	public boolean deletarCliente(Cliente cliente) {
+		System.out.println("Cliente controller: Deletar por ID");
+		return ClienteDAO.getInstance().delete(cliente);
+	}
+
 }
