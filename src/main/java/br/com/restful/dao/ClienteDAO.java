@@ -40,7 +40,7 @@ public class ClienteDAO extends ConnectionFactory {
 		clientes = new ArrayList<Cliente>();
 		try {
 			pstmt = conexao
-					.prepareStatement("select * from cliente order by nome limit 30");
+					.prepareStatement("select * from cliente order by nome");
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
@@ -49,7 +49,7 @@ public class ClienteDAO extends ConnectionFactory {
 				cliente.setId(rs.getInt("id"));
 				cliente.setNome(rs.getString("nome"));
 				cliente.setCpf(rs.getString("cpf"));
-				cliente.setEndereco(rs.getString("endereco"));
+				cliente.setEndereco(rs.getString("endereco")+", "+rs.getInt("numero"));
 
 				clientes.add(cliente);
 			}
