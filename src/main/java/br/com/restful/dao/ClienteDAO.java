@@ -40,7 +40,7 @@ public class ClienteDAO extends ConnectionFactory {
 		clientes = new ArrayList<Cliente>();
 		try {
 			pstmt = conexao
-					.prepareStatement("select * from cliente order by nome");
+					.prepareStatement("select * from cliente order by nome limit 30");
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
