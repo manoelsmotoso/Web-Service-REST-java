@@ -9,31 +9,26 @@ import br.com.restful.model.Cliente;
  * 
  * Classe responsavel por ser o controlador entre o resource e a camada DAO
  *
- * @author Douglas Costa <douglas.cst90@gmail.com>
- * @since 17/02/2013 02:04:21
+ * @author Manoel Silva Motoso <manoelmotoso@hotmail.com>
+ * @since 10/05/2016 10:04:21
  * @version 1.0
  */
 public class ClienteController {
 	/**
 	 * 
-	 * @return Retorna todos os clientes gravados no banco de dados.
+	 * Chama o metodo listarTodos da classe ClienteDAO
 	 */
 	public ArrayList<Cliente> listarTodos() {
-		System.out.println("Enviando para o GET");
+		System.out.println("Controller: listarTodos ");
 		return ClienteDAO.getInstance().listarTodos();
 
 	}
 
 	/**
-	 * 
-	 * @param id
-	 * @return cliente
-	 * @author Manoel Silva Motoso <manoelmotoso@hotmail.com>
-	 * @since 11/05/2016 11:52:48
-	 * @version 1.0
+	 * Chama o metodo getById da classe ClienteDAO
 	 */
 	public Cliente buscarPorId(long id) {
-		System.out.println("Enviando para o GET");
+		System.out.println("Controller: buscarPorId - "+id);
 		ClienteDAO dao = new ClienteDAO();
 		Cliente cliente = dao.getById(id);
 		return cliente;
@@ -43,7 +38,7 @@ public class ClienteController {
 	 * Chama o metodo inset da classe ClienteDAO
 	 */
 	public boolean gravarCliente(Cliente cliente) {
-		System.out.println("Enviando para o PUT");
+		System.out.println("Controller: gravarCliente "+cliente.getNome());
 		return new ClienteDAO().insert(cliente);
 
 	}
@@ -52,7 +47,7 @@ public class ClienteController {
 	 * Chama o metodo update na classe ClienteDAO
 	 */
 	public boolean atualizarCliente(Cliente cliente) {
-		System.out.println("Cliente controller: Atualizar");
+		System.out.println("Controller: atualizarCliente "+cliente.getNome());
 		return ClienteDAO.getInstance().update(cliente);
 	}
 
@@ -60,7 +55,7 @@ public class ClienteController {
 	 * Chama o metodo delete na classe ClienteDAO
 	 */
 	public boolean deletarCliente(Cliente cliente) {
-		System.out.println("Cliente controller: Deletar por ID");
+		System.out.println("Controller: deletarCliente "+cliente.getNome());
 		return ClienteDAO.getInstance().delete(cliente);
 	}
 

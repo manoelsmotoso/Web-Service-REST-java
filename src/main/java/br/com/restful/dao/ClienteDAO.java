@@ -10,15 +10,14 @@ import br.com.restful.factory.ConnectionFactory;
 import br.com.restful.model.Cliente;
 
 /**
- * Classe responsovel por conter os metodos do CRUD
+ * Classe responsovel por conter os metodos do CRUD.
  */
 public class ClienteDAO extends ConnectionFactory {
 
 	private static ClienteDAO instance;
 
 	/**
-	 * Metodo responsovel por criar uma instancia da classe ClienteDAO
-	 * (Singleton)
+	 * Metodo responsovel por criar uma instancia da classe ClienteDAO.
 	 */
 	public static ClienteDAO getInstance() {
 		if (instance == null)
@@ -27,8 +26,10 @@ public class ClienteDAO extends ConnectionFactory {
 	}
 
 	/**
-	 * 
-	 * Metodo responsavel por listar todos os clientes do banco
+	 * @return ArrayList<Cliente>
+	 * Metodo responsavel por buscar e listar todos os clientes gravados no  banco de dados.
+	 * @since 11/05/2016 11:40:45
+	 * @version 1.0
 	 */
 	public ArrayList<Cliente> listarTodos() {
 		Connection conexao = null;
@@ -40,7 +41,7 @@ public class ClienteDAO extends ConnectionFactory {
 		clientes = new ArrayList<Cliente>();
 		try {
 			pstmt = conexao
-					.prepareStatement("select * from cliente order by nome");
+					.prepareStatement("SELECT * FROM cliente ORDER BY nome");
 			rs = pstmt.executeQuery();
 
 			while (rs.next()) {
@@ -49,7 +50,7 @@ public class ClienteDAO extends ConnectionFactory {
 				cliente.setId(rs.getInt("id"));
 				cliente.setNome(rs.getString("nome"));
 				cliente.setCpf(rs.getString("cpf"));
-				cliente.setEndereco(rs.getString("endereco")+", "+rs.getInt("numero"));
+				cliente.setEndereco(rs.getString("endereco"));
 
 				clientes.add(cliente);
 			}
@@ -64,7 +65,7 @@ public class ClienteDAO extends ConnectionFactory {
 	}
 
 	/**
-	 * Busca um cliente no banco dado um id
+	 * Busca um cliente no banco dado um id.
 	 * 
 	 * @param id
 	 * @return cliente
@@ -144,7 +145,7 @@ public class ClienteDAO extends ConnectionFactory {
 	 * Metodo responsavel por atualizar cliente na base de dados
 	 * 
 	 * @param cliente
-	 * @return verdade se atualizado e falso se nao
+	 * @return verdade se atualizado e falso se nao.
 	 * @author Manoel Silva Motoso <manoelmotoso@hotmail.com>
 	 * @since 15/05/2016 13:29:22
 	 * @version 1.0
@@ -158,18 +159,16 @@ public class ClienteDAO extends ConnectionFactory {
 		PreparedStatement pstmt = null;
 		Connection conexao = criarConexao();
 		try {
-			pstmt = conexao
-					.prepareStatement("UPDATE cliente SET nome =?,cpf = ?,endereco = ? WHERE id = ?");
+			pstmt = conexao.prepareStatement("UPDATE cliente SET nome =?,cpf = ?,endereco = ? WHERE id = ?");
 			pstmt.setString(1, nome);
 			pstmt.setString(2, cpf);
 			pstmt.setString(3, endereco);
 			pstmt.setLong(4, id);
 			int execute = pstmt.executeUpdate();
 			isAtualizado = true;
-			System.out.println("Respota do update: " + execute);
+			System.out.println("Retorno update: " + execute);
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			isAtualizado = false;
 			e.printStackTrace();
 
@@ -184,7 +183,7 @@ public class ClienteDAO extends ConnectionFactory {
 	 * Metodo responsavel por deletar cliente na base de dados.
 	 * 
 	 * @param id
-	 * @return Verdade se cliente deletado e falso se nao
+	 * @return Verdade se cliente deletado e falso se nao.
 	 * @author Manoel Silva Motoso <manoelmotoso@hotmail.com>
 	 * @since 15/05/2016 13:29:40
 	 * @version 1.0
@@ -194,8 +193,7 @@ public class ClienteDAO extends ConnectionFactory {
 		PreparedStatement pstmt = null;
 		Connection conexao = criarConexao();
 		try {
-			pstmt = conexao
-					.prepareStatement("DELETE FROM cliente WHERE id = ?");
+			pstmt = conexao.prepareStatement("DELETE FROM cliente WHERE id = ?");
 			pstmt.setInt(1, cliente.getId());
 			boolean execute = pstmt.execute();
 			isDeletado = true;
