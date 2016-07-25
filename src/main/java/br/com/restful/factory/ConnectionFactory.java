@@ -46,7 +46,7 @@ public class ConnectionFactory {
 			SENHA_MYSQL = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
 			HOST_MYSQL = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
 			PORTA_MYSQL = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
-			USUARIO_MYSQL = System.getenv("OPENSHIFT_MYSQL_DB_USER");
+			USUARIO_MYSQL = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
 		} else {
 			// conexão local
 			HOST_MYSQL = "localhost";
@@ -62,7 +62,7 @@ public class ConnectionFactory {
 
 			Class.forName(DRIVER);
 			conexao = DriverManager.getConnection(URL_MYSQL, USUARIO_MYSQL, SENHA_MYSQL);
-			System.out.println("Conex�o criada");
+			System.out.println("Conexao criada");
 
 		} catch (Exception e) {
 			System.out.println("Erro ao criar conexao com o banco: " + URL_MYSQL);
