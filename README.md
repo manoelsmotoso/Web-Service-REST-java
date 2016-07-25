@@ -18,8 +18,4 @@
 Link para um exemplo de consumo deste web service : <br>
 Demo:<a href="http://manoelsmotoso.github.io">http://manoelsmotoso.github.io/</a>
 <br>
-Codigo:<a href="https://github.com/manoelsmotoso/manoelsmotoso.github.io" >https://github.com/manoelsmotoso/manoelsmotoso.github.io</a>
-
-The OpenShift `jbossews` cartridge documentation can be found at:
-
-http://openshift.github.io/documentation/oo_cartridge_guide.html#tomcat
+Codigo da demo:<a href="https://github.com/manoelsmotoso/manoelsmotoso.github.io" >https://github.com/manoelsmotoso/manoelsmotoso.github.io</a>
