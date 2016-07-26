@@ -22,17 +22,30 @@ import br.com.restful.model.Cliente;
 /**
  * Classe responsavel por conter os metodos REST de acesso ao webservice
  */
-@Path("/cliente")
+@Path("/")
 public class ClienteResource {
-	
+	String osName = System.getProperty("os.name").toLowerCase();
+	String index= "~/src/main/resources/index.html";
+	//System.getProperties().list(System.out);
+ 
 	@GET
 	@Path("/")
 	@Produces({MediaType.TEXT_HTML})
-	public InputStream viewHome() throws FileNotFoundException
+	public String viewHome()
 	{
-	   File f = new File("../../../../../webapp/index.html");
-	   //File f = getFileFromSomewhere("tml");
-	   return new FileInputStream(f);
+	   return "</html><!DOCTYPE html>"
+	   		+ "<html><head><title>Cliente</title>"
+	   		+ "<style>"
+	   		+ "h1{"
+	   		+ "test-align:center;"
+	   		+ "color:green;"
+	   		+ "margin-left:25%;"
+	   		+ "margin-riht:25%}"
+	   		+ "</style>"
+	   		+ "</head>"
+	   		+ "<body><h1>Webservice Funcionando</h1>"
+	   		+ "<br>OS: "+osName+"</body>"
+	   		+ "</html>";
 	}
 	
 	@GET
