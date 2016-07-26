@@ -1,5 +1,9 @@
 package br.com.restful.resource;
 
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.ArrayList;
 
 import javax.ws.rs.Consumes;
@@ -20,7 +24,17 @@ import br.com.restful.model.Cliente;
  */
 @Path("/cliente")
 public class ClienteResource {
-
+	
+	@GET
+	@Path("/")
+	@Produces({MediaType.TEXT_HTML})
+	public InputStream viewHome() throws FileNotFoundException
+	{
+	   File f = new File("../../../../../webapp/index.html");
+	   //File f = getFileFromSomewhere("tml");
+	   return new FileInputStream(f);
+	}
+	
 	@GET
 	@Path("/listarTodos")
 	@Produces(MediaType.APPLICATION_JSON)
