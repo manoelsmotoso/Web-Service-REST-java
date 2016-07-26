@@ -25,7 +25,12 @@ import br.com.restful.model.Cliente;
 @Path("/")
 public class ClienteResource {
 	String osName = System.getProperty("os.name").toLowerCase();
-	String index= "~/src/main/resources/index.html";
+	String osArch = System.getProperty("os.arch");
+	String osVersion = System.getProperty("os.version");
+	String Cors = String.valueOf(Runtime.getRuntime().availableProcessors());
+	String fullMemoryJVM = String.valueOf((Runtime.getRuntime().totalMemory()/8/8)/1024);
+	String fullMemory = String.valueOf((Runtime.getRuntime().maxMemory()/8/8)/1024);
+	String freeMemory = String.valueOf((Runtime.getRuntime().freeMemory()/8)/1024);
 	//System.getProperties().list(System.out);
  
 	@GET
@@ -34,17 +39,30 @@ public class ClienteResource {
 	public String viewHome()
 	{
 	   return "</html><!DOCTYPE html>"
-	   		+ "<html><head><title>Cliente</title>"
+	   		+ "<html><head><meta charset='UTF-8'><title>Cliente</title>"
 	   		+ "<style>"
-	   		+ "h1{"
-	   		+ "test-align:center;"
-	   		+ "color:green;"
-	   		+ "margin-left:25%;"
-	   		+ "margin-riht:25%}"
+	   		+ "h1,fieldset{"
+		   		+ "test-align:center;"
+		   		+ "max-width:450px;"
+		   		+ "margin-left:auto;"
+		   		+ "margin-right:auto;"
+		   		+ "}"
+		   	+ "span{color:green;}"
 	   		+ "</style>"
 	   		+ "</head>"
-	   		+ "<body><h1>Webservice Funcionando</h1>"
-	   		+ "<br>OS: "+osName+"</body>"
+	   		+ "<body>"
+		   		+ "<fieldset>"
+		   		 + "<h1>Webservice Funcionando</h1>"
+		   		 + "<legend>Dados da VM </legend>"
+			   		+ "<br>Nome OS:<span> "+osName+"</span>"
+			   		+ "<br>Versão OS:<span> "+osVersion+"</span>"
+			   		+ "<br>Arquitetura do OS:<span> "+osArch+"</span>"
+			   		+ "<br>Nucleos da maquina:<span> "+Cors+"</span>"
+			   		+ "<br>Memoria RAM total:<span> "+fullMemory+"MB</span>"
+			   		+ "<br>Memoria JVM total:<span> "+fullMemoryJVM+"MB</span>"
+			   		+ "<br>Memoria RAM disponivel:<span> "+freeMemory+"</span>"
+		   		 + "</fieldset>"
+	   		+ "</body>"
 	   		+ "</html>";
 	}
 	
