@@ -6,17 +6,10 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
 /**
- * 
- * Classe responsavel por conter os metodos criar e fechar o banco de dados.
- *
- * @author Douglas Costa <douglas.cst90@gmail.com>
- * @since 17/02/2013 01:54:02
- * @version 1.0
+ * Classe responsavel por conter os metodos para criar e fechar o banco de dados.
  */
 public class ConnectionFactory {
-	/*
-	 * 	
-	 */
+	
 	private String SENHA_MYSQL;
 	private String HOST_MYSQL;
 	private String URL_MYSQL;
@@ -24,25 +17,12 @@ public class ConnectionFactory {
 	private String USUARIO_MYSQL;
 	private String DRIVER;
 
-	/*
-	 * //conexao openshift private static final String DRIVER =
-	 * "com.mysql.jdbc.Driver"; private static final String URL =
-	 * "jdbc:mysql://127.6.238.2:3306/cliente"; private static final String
-	 * USUARIO = "adminsHDS63j"; private static final String SENHA =
-	 * "AbL_b2eyBwsm";
-	 */
-
 	/**
-	 * 
 	 * Metodo responsavel por criar uma conexao com o banco
-	 *
-	 * @return
-	 * @author Douglas Costa <douglas.cst90@gmail.com.br>
-	 * @since 17/02/2013 01:51:54
-	 * @version 1.0
 	 */
 	public Connection criarConexao() {
 		if (System.getenv("OPENSHIFT_MYSQL_DB_HOST") != null) {
+			//se executado no servidor do openshift pega valores de variaveis de ambiente
 			SENHA_MYSQL = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
 			HOST_MYSQL = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
 			PORTA_MYSQL = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
