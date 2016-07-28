@@ -6,20 +6,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 /**
  * 
  * Classe responsavel por conter os atributos do Objeto Cliente
- *
- * @author Douglas Costa <douglas.cst90@gmail.com>
- * @since 17/02/2013 01:45:14
- * @version 1.0
+ * 
  */
 @XmlRootElement
 public final class Cliente {
-
 	
 	private Integer id;
 	private String nome;
 	private String cpf;
 	private String endereco;
-	
 	
 	public Integer getId() {
 		return id;
