@@ -21,19 +21,13 @@ public class ConnectionFactory {
 	 * Metodo responsavel por criar uma conexao com o banco
 	 */
 	public Connection criarConexao() {
-		if (System.getenv("OPENSHIFT_MYSQL_DB_HOST") != null) {
-			//se executado no servidor do openshift pega valores de variaveis de ambiente
-			SENHA_MYSQL = System.getenv("OPENSHIFT_MYSQL_DB_PASSWORD");
-			HOST_MYSQL = System.getenv("OPENSHIFT_MYSQL_DB_HOST");
-			PORTA_MYSQL = System.getenv("OPENSHIFT_MYSQL_DB_PORT");
-			USUARIO_MYSQL = System.getenv("OPENSHIFT_MYSQL_DB_USERNAME");
-		} else {
-			// conexão local
-			HOST_MYSQL = "localhost";
-			PORTA_MYSQL = "3306";
-			USUARIO_MYSQL = "root";
-			SENHA_MYSQL = "";
-		}
+
+		// conexão local
+		HOST_MYSQL = "localhost";
+		PORTA_MYSQL = "3306";
+		USUARIO_MYSQL = "manoel";
+		SENHA_MYSQL = "123456";
+		
 		URL_MYSQL = "jdbc:mysql://" + HOST_MYSQL + ":" + PORTA_MYSQL + "/cliente";
 		DRIVER = "com.mysql.jdbc.Driver";
 		Connection conexao = null;
@@ -64,7 +58,7 @@ public class ConnectionFactory {
 			if (rs != null) {
 				rs.close();
 			}
-			System.out.println("Conex�o fechada");
+			System.out.println("Conexao fechada");
 		} catch (Exception e) {
 			System.out.println("Erro ao fechar conexao com o banco: " + URL_MYSQL);
 		}

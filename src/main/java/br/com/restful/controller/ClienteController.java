@@ -5,14 +5,6 @@ import java.util.ArrayList;
 import br.com.restful.dao.ClienteDAO;
 import br.com.restful.model.Cliente;
 
-/**
- * 
- * Classe responsavel por ser o controlador entre o resource e a camada DAO
- *
- * @author Manoel Silva Motoso <manoelmotoso@hotmail.com>
- * @since 10/05/2016 10:04:21
- * @version 1.0
- */
 public class ClienteController {
 	/**
 	 * 
@@ -28,7 +20,7 @@ public class ClienteController {
 	 * Chama o metodo getById da classe ClienteDAO
 	 */
 	public Cliente buscarPorId(long id) {
-		System.out.println("Controller: buscarPorId - "+id);
+		System.out.println("Controller: buscarPorId - " + id);
 		ClienteDAO dao = new ClienteDAO();
 		Cliente cliente = dao.getById(id);
 		return cliente;
@@ -38,7 +30,7 @@ public class ClienteController {
 	 * Chama o metodo inset da classe ClienteDAO
 	 */
 	public boolean gravarCliente(Cliente cliente) {
-		System.out.println("Controller: gravarCliente "+cliente.getNome());
+		System.out.println("Controller: gravarCliente " + cliente.getNome());
 		return new ClienteDAO().insert(cliente);
 
 	}
@@ -47,7 +39,7 @@ public class ClienteController {
 	 * Chama o metodo update na classe ClienteDAO
 	 */
 	public boolean atualizarCliente(Cliente cliente) {
-		System.out.println("Controller: atualizarCliente "+cliente.getNome());
+		System.out.println("Controller: atualizarCliente " + cliente.getNome());
 		return ClienteDAO.getInstance().update(cliente);
 	}
 
@@ -55,7 +47,7 @@ public class ClienteController {
 	 * Chama o metodo delete na classe ClienteDAO
 	 */
 	public boolean deletarCliente(Cliente cliente) {
-		System.out.println("Controller: deletarCliente "+cliente.getNome());
+		System.out.println("Controller: deletarCliente " + cliente.getNome());
 		return ClienteDAO.getInstance().delete(cliente);
 	}
 
