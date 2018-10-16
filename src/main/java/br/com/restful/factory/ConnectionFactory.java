@@ -25,8 +25,8 @@ public class ConnectionFactory {
 		// conexão local
 		HOST_MYSQL = "localhost";
 		PORTA_MYSQL = "3306";
-		USUARIO_MYSQL = "manoel";
-		SENHA_MYSQL = "123456";
+		USUARIO_MYSQL = "root";
+		SENHA_MYSQL = "";
 		
 		URL_MYSQL = "jdbc:mysql://" + HOST_MYSQL + ":" + PORTA_MYSQL + "/cliente";
 		DRIVER = "com.mysql.jdbc.Driver";
