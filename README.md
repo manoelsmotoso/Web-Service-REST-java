@@ -1,5 +1,5 @@
 # Web Service REST java
-O projeto consiste em um web service desenvolvido com java e com persistencia de dados em MySql. Este web service recebe e envia dados em formato json podendo ser consumido por APPs de diversas plataformas e é um pequeno exemplo que apenas grava e retorna dados de clintes, mas que pode ser expendido e ganhar novas funcionalidades.</p>
+>O projeto consiste em um web service desenvolvido com java e com persistencia de dados em MySql. Este web service recebe e envia dados em formato json podendo ser consumido por APPs de diversas plataformas e é um pequeno exemplo que apenas grava e retorna dados de clintes, mas que pode ser expendido e ganhar novas funcionalidades.</p>
 
 #### Tecnologis/libs utilizadas:
 * Java
@@ -12,12 +12,12 @@ O projeto consiste em um web service desenvolvido com java e com persistencia de
 * Tomcat 8
 * GIT
 
-O codio base desse projeto veio do github do Douglas Costa <douglas.cst90@gmail.com>.
+>O codio base desse projeto veio do github do Douglas Costa <douglas.cst90@gmail.com>.
 
 # setup do projeto
 ## banco de dados
 #### 1 - entrar no console do MySQL.
-mysql -u 'usuario mysql aqui' -p'senha mysql aqui'
+> mysql -u 'usuario mysql aqui' -p'senha mysql aqui'
 ```shell
 #exemplo
 mysql -uroot -p123456
@@ -28,7 +28,7 @@ mysql -uroot -p123456
 CREATE DATABASE client;
 ```
 ### 3 - criar tabela cliente, com id, nome, endereço e cpf.
-copie e cole os comandos no console no mysql e de enter.
+>copie e cole os comandos no console no mysql e de enter.
 ```sql
 #mysql>
 use cliente;
@@ -36,7 +36,7 @@ CREATE TABLE `cliente` (`nome` varchar(255) NOT NULL, `cpf` varchar(14) NOT NULL
 ALTER TABLE `cliente` ADD PRIMARY KEY (`id`);
 ALTER TABLE `cliente` MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT
 ```
-pronto nesse ponto o banco de dados já esta pronto para a aplicação.
+>pronto nesse ponto o banco de dados já esta pronto para a aplicação.
 ## importar projeto e rodar no Eclipse.
 #### 1- abra o eclipse, vá até 
 File> Import> GIT> Projects from Git> Next>
@@ -68,7 +68,7 @@ Run as> Run on server>
 >recomendo usar o [Postman](https://www.getpostman.com "postman") para testar essa api.
 #### CRUD
 
-#### criar
+>#### criar
 POST - http://localhost:8080/rest-api
 ```json
 #body
@@ -78,7 +78,7 @@ POST - http://localhost:8080/rest-api
 "cpf":""
 }
 ```
-#### atualizar 
+>#### atualizar 
 PUT -  http://localhost:8080/rest-api/{id}
 ```json
 #body
@@ -88,11 +88,11 @@ PUT -  http://localhost:8080/rest-api/{id}
 "cpf":""
 }
 ```
-#### listar 
+>#### listar 
 GET - http://localhost:8080/rest-api
-#### buscar por id 
+>#### buscar por id 
 GET - http://localhost:8080/rest-api/{id}
-#### deletar
+>#### deletar
 DELETE - http://localhost:8080/rest-api/{id}
 
 
