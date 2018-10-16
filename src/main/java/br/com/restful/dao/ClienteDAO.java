@@ -28,8 +28,6 @@ public class ClienteDAO extends ConnectionFactory {
 	/**
 	 * @return ArrayList<Cliente>
 	 * Metodo responsavel por buscar e listar todos os clientes gravados no  banco de dados.
-	 * @since 11/05/2016 11:40:45
-	 * @version 1.0
 	 */
 	public ArrayList<Cliente> listarTodos() {
 		Connection conexao = null;
@@ -69,9 +67,6 @@ public class ClienteDAO extends ConnectionFactory {
 	 * 
 	 * @param id
 	 * @return cliente
-	 * @author Manoel Silva Motoso <manoelmotoso@hotmail.com>
-	 * @since 11/05/2016 11:48:45
-	 * @version 1.0
 	 */
 	public Cliente getById(long id) {
 
@@ -110,9 +105,6 @@ public class ClienteDAO extends ConnectionFactory {
 	 * 
 	 * @param cliente
 	 * @return verdade se cliente gravado e falso se nao gravado
-	 * @author Manoel Silva Motoso <manoelmotoso@hotmail.com>
-	 * @since 11/05/2016 11:49:38
-	 * @version 1.0
 	 */
 	public boolean insert(Cliente cliente) {
 		String nome = cliente.getNome();
@@ -146,9 +138,6 @@ public class ClienteDAO extends ConnectionFactory {
 	 * 
 	 * @param cliente
 	 * @return verdade se atualizado e falso se nao.
-	 * @author Manoel Silva Motoso <manoelmotoso@hotmail.com>
-	 * @since 15/05/2016 13:29:22
-	 * @version 1.0
 	 */
 	public boolean update(Cliente cliente) {
 		long id = cliente.getId();
@@ -184,9 +173,6 @@ public class ClienteDAO extends ConnectionFactory {
 	 * 
 	 * @param id
 	 * @return Verdade se cliente deletado e falso se nao.
-	 * @author Manoel Silva Motoso <manoelmotoso@hotmail.com>
-	 * @since 15/05/2016 13:29:40
-	 * @version 1.0
 	 */
 	public boolean delete(Cliente cliente) {
 		boolean isDeletado = false;

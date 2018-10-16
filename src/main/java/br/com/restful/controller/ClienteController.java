@@ -32,7 +32,6 @@ public class ClienteController {
 	public boolean gravarCliente(Cliente cliente) {
 		System.out.println("Controller: gravarCliente " + cliente.getNome());
 		return new ClienteDAO().insert(cliente);
-
 	}
 
 	/**
