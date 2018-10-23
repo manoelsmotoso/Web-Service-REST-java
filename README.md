@@ -70,10 +70,11 @@ Run as> Run on server>
 
 >#### criar
 #method -  uri
+
 POST - http://localhost:8080/rest-api
 ```json
 #headers 
-{ 'Content-type': 'application/json' }
+{ "Content-type": "application/json" } }
 
 #body
 {
@@ -83,11 +84,12 @@ POST - http://localhost:8080/rest-api
 }
 ```
 >#### atualizar 
-#method -  uri
+method -  uri
+
 PUT -  http://localhost:8080/rest-api/{id}
 ```json
 #headers 
-{ 'Content-type': 'application/json' }
+{ "Content-type": "application/json" }
 
 #body
 {
@@ -96,14 +98,17 @@ PUT -  http://localhost:8080/rest-api/{id}
 "cpf":""
 }
 ```
+
 >#### listar 
-#method -  uri
+method -  uri
 GET - http://localhost:8080/rest-api
+
 >#### buscar por id 
-#method -  uri
+method -  uri
 GET - http://localhost:8080/rest-api/{id}
+
 >#### deletar
-#method -  uri
+method -  uri
 DELETE - http://localhost:8080/rest-api/{id}
 
 
