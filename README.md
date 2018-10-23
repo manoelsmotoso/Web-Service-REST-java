@@ -69,8 +69,12 @@ Run as> Run on server>
 #### CRUD
 
 >#### criar
+#method -  uri
 POST - http://localhost:8080/rest-api
 ```json
+#headers 
+{ 'Content-type': 'application/json' }
+
 #body
 {
 "nome":"",
@@ -79,8 +83,12 @@ POST - http://localhost:8080/rest-api
 }
 ```
 >#### atualizar 
+#method -  uri
 PUT -  http://localhost:8080/rest-api/{id}
 ```json
+#headers 
+{ 'Content-type': 'application/json' }
+
 #body
 {
 "nome":"",
@@ -89,10 +97,13 @@ PUT -  http://localhost:8080/rest-api/{id}
 }
 ```
 >#### listar 
+#method -  uri
 GET - http://localhost:8080/rest-api
 >#### buscar por id 
+#method -  uri
 GET - http://localhost:8080/rest-api/{id}
 >#### deletar
+#method -  uri
 DELETE - http://localhost:8080/rest-api/{id}
 
 
