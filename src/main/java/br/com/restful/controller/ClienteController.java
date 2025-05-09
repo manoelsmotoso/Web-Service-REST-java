@@ -2,52 +2,35 @@ package br.com.restful.controller;
 
 import java.util.ArrayList;
 
-import br.com.restful.dao.ClienteDAO;
-import br.com.restful.model.Cliente;
+import br.com.restful.dao.CustomerDAO;
+import br.com.restful.model.Customer;
 
-public class ClienteController {
-	/**
-	 * 
-	 * Chama o metodo listarTodos da classe ClienteDAO
-	 */
-	public ArrayList<Cliente> listarTodos() {
-		System.out.println("Controller: listarTodos ");
-		return ClienteDAO.getInstance().listarTodos();
+public class CustomerController {
 
-	}
+    public ArrayList<Customer> getAllCustomers() {
+        System.out.println("Controller: getAllCustomers");
+        return CustomerDAO.getInstance().getAll();
+    }
 
-	/**
-	 * Chama o metodo getById da classe ClienteDAO
-	 */
-	public Cliente buscarPorId(long id) {
-		System.out.println("Controller: buscarPorId - " + id);
-		ClienteDAO dao = new ClienteDAO();
-		Cliente cliente = dao.getById(id);
-		return cliente;
-	}
+    public Customer getCustomerById(long id) {
+        System.out.println("Controller: getCustomerById - " + id);
+        CustomerDAO dao = new CustomerDAO();
+        Customer customer = dao.getById(id);
+        return customer;
+    }
 
-	/**
-	 * Chama o metodo inset da classe ClienteDAO
-	 */
-	public boolean gravarCliente(Cliente cliente) {
-		System.out.println("Controller: gravarCliente " + cliente.getNome());
-		return new ClienteDAO().insert(cliente);
-	}
+    public boolean saveCustomer(Customer customer) {
+        System.out.println("Controller: saveCustomer " + customer.getName());
+        return new CustomerDAO().insert(customer);
+    }
 
-	/**
-	 * Chama o metodo update na classe ClienteDAO
-	 */
-	public boolean atualizarCliente(Cliente cliente) {
-		System.out.println("Controller: atualizarCliente " + cliente.getNome());
-		return ClienteDAO.getInstance().update(cliente);
-	}
+    public boolean updateCustomer(Customer customer) {
+        System.out.println("Controller: updateCustomer " + customer.getName());
+        return CustomerDAO.getInstance().update(customer);
+    }
 
-	/**
-	 * Chama o metodo delete na classe ClienteDAO
-	 */
-	public boolean deletarCliente(Cliente cliente) {
-		System.out.println("Controller: deletarCliente " + cliente.getNome());
-		return ClienteDAO.getInstance().delete(cliente);
-	}
-
+    public boolean deleteCustomer(Customer customer) {
+        System.out.println("Controller: deleteCustomer " + customer.getName());
+        return CustomerDAO.getInstance().delete(customer);
+    }
 }
